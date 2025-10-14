@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Habinéo — Connexion</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/connexion.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body class="page-auth">
 
   {% include 'header.html' %}
 
-  <main class="page-content">
-    <section class="container connexion-section">
+  <main class="page-content container">
+    <section class="connexion-section">
       <h1>Connexion</h1>
       <p>Connectez-vous à votre espace personnel Habinéo.</p>
 
@@ -22,7 +22,7 @@
       </form>
 
       <p class="register-link">
-        Pas encore de compte ? <a href="{{ url_for('creer_compte') }}">Créez-en un ici</a>.
+        Pas encore de compte ? <a href="{{ url_for('signup') }}">Créez-en un ici</a>.
       </p>
     </section>
   </main>

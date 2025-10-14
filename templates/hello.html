@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello Habinéo</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hello — Habinéo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body class="page-hello">
+
   <h1>👋 Hello, Habinéo !</h1>
   <p>Bienvenue sur ton premier projet Flask stylé 🎨</p>
   <button class="btn" onclick="alert('Bienvenue chez Habinéo !')">Commencer</button>
+  <p style="margin-top:16px">
+    <a class="btn btn-accent" href="{{ url_for('home') }}">Aller à l’accueil</a>
+  </p>
+
 </body>
 </html>

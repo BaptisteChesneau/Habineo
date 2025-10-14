@@ -4,16 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Habinéo — Vente</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/vente.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body class="page-sales">
 
   {% include 'header.html' %}
 
-  <main class="page-content">
-    <section class="container">
+  <main class="page-content container">
+    <section>
       <h1>Nos biens à la vente</h1>
       <p>Découvrez notre sélection exclusive de maisons, appartements et terrains à vendre.</p>
+
+      <div class="property-grid">
+        <article class="card">
+          <img src="{{ url_for('static', filename='images/placeholder1.jpg') }}" alt="Appartement à la vente">
+          <h3>Appartement — Lyon 3e</h3>
+          <p>78 m² • 4 pièces • 420 000 €</p>
+        </article>
+        <article class="card">
+          <img src="{{ url_for('static', filename='images/placeholder2.jpg') }}" alt="Maison à la vente">
+          <h3>Maison — Toulouse</h3>
+          <p>120 m² • 5 pièces • 520 000 €</p>
+        </article>
+      </div>
     </section>
   </main>
 

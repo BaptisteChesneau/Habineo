@@ -4,16 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Habinéo — Location</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/location.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body class="page-rentals">
 
   {% include 'header.html' %}
 
-  <main class="page-content">
-    <section class="container">
+  <main class="page-content container">
+    <section>
       <h1>Nos biens en location</h1>
       <p>Trouvez votre logement idéal parmi nos offres à louer.</p>
+
+      <div class="listings">
+        <article class="rental-card">
+          <img src="{{ url_for('static', filename='images/placeholder3.jpg') }}" alt="Bien à louer">
+          <div class="content">
+            <h3>Studio — Nantes</h3>
+            <p>24 m² • 650 €/mois</p>
+          </div>
+        </article>
+
+        <article class="rental-card">
+          <img src="{{ url_for('static', filename='images/placeholder4.jpg') }}" alt="Bien à louer">
+          <div class="content">
+            <h3>T2 — Lille</h3>
+            <p>42 m² • 780 €/mois</p>
+          </div>
+        </article>
+      </div>
     </section>
   </main>
 
