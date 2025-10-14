@@ -1,38 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Habinéo — Location</title>
+  <title>Habinéo — Locations</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body class="page-rentals">
 
   {% include 'header.html' %}
 
-  <main class="page-content container">
-    <section>
-      <h1>Nos biens en location</h1>
-      <p>Trouvez votre logement idéal parmi nos offres à louer.</p>
+  <main class="page-content">
+    <div class="container">
 
-      <div class="listings">
-        <article class="rental-card">
-          <img src="{{ url_for('static', filename='images/placeholder3.jpg') }}" alt="Bien à louer">
-          <div class="content">
-            <h3>Studio — Nantes</h3>
-            <p>24 m² • 650 €/mois</p>
-          </div>
-        </article>
+      <header class="rentals-head">
+        <h1>Biens à louer à Paris et alentours</h1>
+        <span class="rentals-count">128 biens</span>
+      </header>
 
-        <article class="rental-card">
-          <img src="{{ url_for('static', filename='images/placeholder4.jpg') }}" alt="Bien à louer">
-          <div class="content">
-            <h3>T2 — Lille</h3>
-            <p>42 m² • 780 €/mois</p>
+      <div class="rentals-layout">
+        <!-- Sidebar filtres -->
+        <aside class="filters">
+          <h3>Filtres</h3>
+
+          <label>Localisation
+            <input type="text" placeholder="Ville / CP">
+          </label>
+
+          <label>Budget min
+            <input type="number" placeholder="€">
+          </label>
+
+          <label>Budget max
+            <input type="number" placeholder="€">
+          </label>
+
+          <label>Pièces
+            <select>
+              <option>Toutes</option>
+              <option>Studio</option>
+              <option>T2</option>
+              <option>T3</option>
+              <option>T4+</option>
+            </select>
+          </label>
+
+          <button class="btn btn-primary w-100">Appliquer</button>
+        </aside>
+
+        <!-- Zone principale -->
+        <section class="results">
+          <div class="results-toolbar">
+            <div class="toolbar-left">
+              <label for="sort">Trier :</label>
+              <select id="sort">
+                <option>Récents</option>
+                <option>Prix ↑</option>
+                <option>Prix ↓</option>
+                <option>Surface ↑</option>
+                <option>Surface ↓</option>
+              </select>
+            </div>
           </div>
-        </article>
+
+          <div class="cards-grid">
+            <!-- Carte 1 -->
+            <article class="card">
+              <div class="media"></div>
+              <div class="card-body">
+                <h3>Maison — Montreuil</h3>
+                <p>95 m² • 5 pièces</p>
+                <div class="price">2 450 € / mois</div>
+                <a href="#" class="btn btn-accent">Voir le bien</a>
+              </div>
+            </article>
+
+            <!-- Carte 2 -->
+            <article class="card">
+              <div class="media"></div>
+              <div class="card-body">
+                <h3>Duplex — Boulogne</h3>
+                <p>80 m² • 4 pièces</p>
+                <div class="price">2 120 € / mois</div>
+                <a href="#" class="btn btn-accent">Voir le bien</a>
+              </div>
+            </article>
+
+            <!-- Carte 3 -->
+            <article class="card">
+              <div class="media"></div>
+              <div class="card-body">
+                <h3>Studio — Paris 5e</h3>
+                <p>24 m² • 1 pièce</p>
+                <div class="price">980 € / mois</div>
+                <a href="#" class="btn btn-accent">Voir le bien</a>
+              </div>
+            </article>
+
+            <!-- Carte 4 -->
+            <article class="card">
+              <div class="media"></div>
+              <div class="card-body">
+                <h3>Appartement — Issy</h3>
+                <p>62 m² • 3 pièces</p>
+                <div class="price">1 580 € / mois</div>
+                <a href="#" class="btn btn-accent">Voir le bien</a>
+              </div>
+            </article>
+
+            <!-- Carte 5 -->
+            <article class="card">
+              <div class="media"></div>
+              <div class="card-body">
+                <h3>Loft — Saint-Ouen</h3>
+                <p>110 m² • 3 pièces</p>
+                <div class="price">2 950 € / mois</div>
+                <a href="#" class="btn btn-accent">Voir le bien</a>
+              </div>
+            </article>
+
+            <!-- Carte 6 -->
+            <article class="card">
+              <div class="media"></div>
+              <div class="card-body">
+                <h3>T2 — Vincennes</h3>
+                <p>45 m² • 2 pièces</p>
+                <div class="price">1 250 € / mois</div>
+                <a href="#" class="btn btn-accent">Voir le bien</a>
+              </div>
+            </article>
+          </div>
+
+          <nav class="pagination">
+            <button class="btn btn-ghost">Précédent</button>
+            <button class="btn btn-ghost">Suivant</button>
+          </nav>
+        </section>
       </div>
-    </section>
+    </div>
   </main>
 
   {% include 'footer.html' %}

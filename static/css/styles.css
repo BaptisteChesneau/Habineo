@@ -405,23 +405,200 @@ body {
 /* =========================================================
    5️⃣ SALES — (sales.html) -> body class="page-sales"
    ========================================================= */
-.page-sales .page-content{padding:60px 5%; text-align:center}
-.page-sales .property-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px}
-.page-sales .card{background:#fff; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,.08); overflow:hidden; transition:transform .2s}
-.page-sales .card:hover{transform:translateY(-5px)}
-.page-sales .card img{width:100%; height:180px; object-fit:cover}
-.page-sales .card h3{margin:10px; color:#1E5F74}
-.page-sales .card p{margin:0 10px 12px; color:#555}
+
+/* Contenu principal */
+.page-sales .page-content{padding:24px 0 60px}
+
+/* Titre + compteur */
+.page-sales .sales-head{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:16px; margin-bottom:16px;
+}
+.page-sales .sales-head h1{
+  font-size: clamp(22px, 3.2vw, 30px);
+  margin: 0; color: var(--texte-principal);
+}
+.page-sales .sales-count{
+  font-size:.95rem; color:#6b7280;
+}
+
+/* Layout principal: sidebar + résultats */
+.page-sales .sales-layout{
+  display:grid; grid-template-columns: 280px 1fr; gap:22px;
+}
+
+/* Sidebar filtres */
+.page-sales .filters{
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  padding:16px; position:sticky; top:84px; height:max-content;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+}
+.page-sales .filters h3{
+  margin:0 0 10px; color:var(--bleu-petrole); font-size:1.05rem;
+}
+.page-sales .filters label{
+  display:block; font-size:.9rem; margin:10px 0 6px; color:#374151;
+}
+.page-sales .filters input,
+.page-sales .filters select{
+  width:100%; padding:10px 12px; border:1px solid var(--border);
+  border-radius:8px; background:#fff; color:var(--texte-principal);
+}
+.page-sales .filters .btn-primary{
+  margin-top:12px; width:100%; background:var(--bleu-petrole); color:#fff;
+  border:none; border-radius:10px; padding:10px 14px; font-weight:700;
+}
+.page-sales .filters .btn-primary:hover{ filter:brightness(1.05); }
+
+/* Barre d’outils au-dessus des cartes */
+.page-sales .results .results-toolbar{
+  display:flex; justify-content:flex-end; align-items:center; gap:10px;
+  margin-bottom:12px; color:#374151;
+}
+.page-sales .results .results-toolbar select{
+  padding:8px 10px; border:1px solid var(--border);
+  border-radius:10px; background:#fff;
+}
+
+/* Grille de cartes */
+.page-sales .cards-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:20px;
+}
+.page-sales .card{
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.08);
+  transition:transform .15s, box-shadow .15s;
+  display:flex; flex-direction:column;
+}
+.page-sales .card:hover{ transform: translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.12); }
+.page-sales .card .media{
+  height:160px;
+  background: linear-gradient(135deg, var(--bleu-petrole), var(--vert-menthe));
+}
+.page-sales .card .card-body{
+  padding:14px; display:flex; flex-direction:column; gap:6px; flex:1;
+}
+.page-sales .card h3{ margin:0; font-size:1.05rem; }
+.page-sales .card p{ margin:0; color:#6b7280; font-size:.95rem; }
+.page-sales .card .price{ margin-top:auto; font-weight:800; color:var(--corail); }
+.page-sales .card .btn{ align-self:flex-start; margin-top:8px; }
+
+/* Pagination */
+.page-sales .pagination{
+  display:flex; gap:8px; justify-content:center; margin-top:18px;
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .page-sales .cards-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 900px){
+  .page-sales .sales-layout{ grid-template-columns: 1fr; }
+  .page-sales .filters{ position:static; }
+}
+@media (max-width: 560px){
+  .page-sales .cards-grid{ grid-template-columns: 1fr; }
+}
 
 
 /* =========================================================
    6️⃣ RENTALS — (rentals.html) -> body class="page-rentals"
    ========================================================= */
-.page-rentals .page-content{padding:60px 5%; text-align:center}
-.page-rentals .listings{display:flex; flex-wrap:wrap; justify-content:center; gap:20px}
-.page-rentals .rental-card{background:#fff; border-radius:8px; width:300px; box-shadow:0 4px 10px rgba(0,0,0,.08); transition:transform .2s}
-.page-rentals .rental-card:hover{transform:translateY(-4px)}
-.page-rentals .rental-card img{width:100%; border-bottom:2px solid var(--corail)}
+.page-rentals .page-content{padding:24px 0 60px}
+
+/* Titre + compteur */
+.page-rentals .rentals-head{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:16px; margin-bottom:16px;
+}
+.page-rentals .rentals-head h1{
+  font-size: clamp(22px, 3.2vw, 30px);
+  margin: 0; color: var(--texte-principal);
+}
+.page-rentals .rentals-count{
+  font-size:.95rem; color:#6b7280;
+}
+
+/* Layout principal: sidebar + contenu */
+.page-rentals .rentals-layout{
+  display:grid; grid-template-columns: 280px 1fr; gap:22px;
+}
+
+/* Filtres (sidebar) */
+.page-rentals .filters{
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  padding:16px; position:sticky; top:84px; height:max-content;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+}
+.page-rentals .filters h3{
+  margin:0 0 10px; color:var(--bleu-petrole); font-size:1.05rem;
+}
+.page-rentals .filters label{
+  display:block; font-size:.9rem; margin:10px 0 6px; color:#374151;
+}
+.page-rentals .filters input,
+.page-rentals .filters select{
+  width:100%; padding:10px 12px; border:1px solid var(--border);
+  border-radius:8px; background:#fff; color:var(--texte-principal);
+}
+.page-rentals .filters .btn-primary{
+  margin-top:12px; width:100%; background:var(--bleu-petrole); color:#fff;
+  border:none; border-radius:10px; padding:10px 14px; font-weight:700;
+}
+.page-rentals .filters .btn-primary:hover{ filter:brightness(1.05); }
+
+/* Barre d’outils */
+.page-rentals .results .results-toolbar{
+  display:flex; justify-content:flex-end; align-items:center; gap:10px;
+  margin-bottom:12px; color:#374151;
+}
+.page-rentals .results .results-toolbar select{
+  padding:8px 10px; border:1px solid var(--border); border-radius:10px; background:#fff;
+}
+
+/* Grille de cartes */
+.page-rentals .cards-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:20px;
+}
+.page-rentals .card{
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.08);
+  transition:transform .15s, box-shadow .15s;
+  display:flex; flex-direction:column;
+}
+.page-rentals .card:hover{ transform: translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.12); }
+.page-rentals .card .media{
+  height:160px;
+  background: linear-gradient(135deg, var(--bleu-petrole), var(--vert-menthe));
+}
+.page-rentals .card .card-body{
+  padding:14px; display:flex; flex-direction:column; gap:6px; flex:1;
+}
+.page-rentals .card h3{ margin:0; font-size:1.05rem; }
+.page-rentals .card p{ margin:0; color:#6b7280; font-size:.95rem; }
+.page-rentals .card .price{ margin-top:auto; font-weight:800; color:var(--texte-principal); }
+.page-rentals .card .btn{ align-self:flex-start; margin-top:8px; }
+
+/* Pagination */
+.page-rentals .pagination{
+  display:flex; gap:8px; justify-content:center; margin-top:18px;
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .page-rentals .cards-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 900px){
+  .page-rentals .rentals-layout{ grid-template-columns: 1fr; }
+  .page-rentals .filters{ position:static; }
+}
+@media (max-width: 560px){
+  .page-rentals .cards-grid{ grid-template-columns: 1fr; }
+}
 
 /* =========================================================
    7️⃣ ESTIMATE — (estimate.html) -> body class="page-estimate"

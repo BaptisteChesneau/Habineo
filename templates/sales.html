@@ -10,22 +10,79 @@
 
   {% include 'header.html' %}
 
-  <main class="page-content container">
-    <section>
-      <h1>Nos biens à la vente</h1>
-      <p>Découvrez notre sélection exclusive de maisons, appartements et terrains à vendre.</p>
+  <main class="container sales-layout">
+    <header class="listing-header">
+      <h1>Biens à vendre à Paris et alentours</h1>
+      <div class="listing-meta">128 biens</div>
+    </header>
 
-      <div class="property-grid">
-        <article class="card">
-          <img src="{{ url_for('static', filename='images/placeholder1.jpg') }}" alt="Appartement à la vente">
-          <h3>Appartement — Lyon 3e</h3>
-          <p>78 m² • 4 pièces • 420 000 €</p>
+    <aside class="filters">
+      <h3>Filtres</h3>
+
+      <label>Localisation
+        <input type="text" placeholder="Ville / CP">
+      </label>
+
+      <label>Budget min
+        <input type="number" placeholder="€">
+      </label>
+
+      <label>Budget max
+        <input type="number" placeholder="€">
+      </label>
+
+      <label>Pièces
+        <select>
+          <option>Toutes</option>
+          <option>1</option><option>2</option><option>3</option>
+          <option>4</option><option>5+</option>
+        </select>
+      </label>
+
+      <button class="btn btn-primary w-100">Appliquer</button>
+    </aside>
+
+    <section class="results">
+      <div class="results-toolbar">
+        <div class="toolbar-left">
+          <button class="btn btn-ghost sm">Thème</button>
+          <button class="btn btn-accent sm">Rechercher</button>
+        </div>
+        <div class="toolbar-right">
+          <label for="sort">Trier :</label>
+          <select id="sort">
+            <option>Récents</option>
+            <option>Prix croissant</option>
+            <option>Prix décroissant</option>
+            <option>Surface</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        {% for item in [
+          {'title':'Maison — Montreuil','info':'95 m² • 5 pièces','price':'699 000 €'},
+          {'title':'Duplex — Boulogne','info':'80 m² • 4 pièces','price':'820 000 €'},
+          {'title':'Studio — Paris 5e','info':'24 m² • 1 pièce','price':'220 000 €'},
+          {'title':'Appartement — Issy','info':'62 m² • 3 pièces','price':'510 000 €'},
+          {'title':'Loft — Saint-Ouen','info':'110 m² • 3 pièces','price':'1 020 000 €'},
+          {'title':'T2 — Vincennes','info':'45 m² • 2 pièces','price':'430 000 €'}
+        ] %}
+        <article class="card card-listing">
+          <div class="media"></div>
+          <div class="content">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.info }}</p>
+            <div class="price">{{ item.price }}</div>
+            <button class="btn btn-accent sm">Voir le bien</button>
+          </div>
         </article>
-        <article class="card">
-          <img src="{{ url_for('static', filename='images/placeholder2.jpg') }}" alt="Maison à la vente">
-          <h3>Maison — Toulouse</h3>
-          <p>120 m² • 5 pièces • 520 000 €</p>
-        </article>
+        {% endfor %}
+      </div>
+
+      <div class="pagination">
+        <button class="btn btn-ghost sm">Précédent</button>
+        <button class="btn btn-ghost sm">Suivant</button>
       </div>
     </section>
   </main>
