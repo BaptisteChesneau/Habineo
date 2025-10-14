@@ -11,26 +11,85 @@
   <div class="container header-inner">
 
     <!-- Logo -->
-    <a class="logo" href="{{ url_for('accueil') }}">
+    <a class="logo" href="{{ url_for('home') }}">
       <span class="logo-mark"></span>
       <span>HABINÉO</span>
     </a>
 
     <!-- Navigation -->
     <nav class="nav">
-      <a href="{{ url_for('accueil') }}" class="nav-link">Accueil</a>
-      <a href="#" class="nav-link">Vente</a>
-      <a href="#" class="nav-link">Location</a>
-      <a href="#" class="nav-link">Estimation</a>
-      <a href="#" class="nav-link">Agence</a>
-      <a href="#" class="nav-link">Contact</a>
+      <a href="{{ url_for('home') }}"    class="nav-link" data-i18n="nav.home">Accueil</a>
+      <a href="{{ url_for('sales') }}"   class="nav-link" data-i18n="nav.sales">Vente</a>
+      <a href="{{ url_for('rentals') }}" class="nav-link" data-i18n="nav.rentals">Location</a>
+      <a href="{{ url_for('estimate') }}"class="nav-link" data-i18n="nav.estimate">Estimation</a>
+      <a href="{{ url_for('agency') }}"  class="nav-link" data-i18n="nav.agency">Agence</a>
+      <a href="{{ url_for('contact') }}" class="nav-link" data-i18n="nav.contact">Contact</a>
     </nav>
 
-    <!-- Actions -->
-    <div class="actions">
-      <button class="btn btn-accent">Créer un compte</button>
-      <button class="btn btn-ghost">Se connecter</button>
+    <!-- Actions + Sélecteur d'affichage -->
+    <div class="actions" style="display:flex;align-items:center;gap:8px;">
+      <a class="btn btn-accent"
+        href="{{ url_for('signup') }}"
+        data-i18n="actions.signup">Créer un compte</a>
+
+      <a class="btn btn-ghost"
+        href="{{ url_for('login') }}"
+        data-i18n="actions.login">Se connecter</a>
+
+      <label for="lang" class="sr-only">Langue</label>
+      <select id="lang" aria-label="Langue de l’interface">
+        <option value="fr" selected>Français</option>
+        <option value="en">English</option>
+      </select>
     </div>
+
 
   </div>
 </header>
+
+<script>
+  // Dictionnaires UI (routes restent en anglais, on ne change que les libellés)
+  const I18N = {
+    fr: {
+      "nav.home": "Accueil",
+      "nav.sales": "Vente",
+      "nav.rentals": "Location",
+      "nav.estimate": "Estimation",
+      "nav.agency": "Agence",
+      "nav.contact": "Contact",
+      "actions.signup": "Créer un compte",
+      "actions.login": "Se connecter"
+    },
+    en: {
+      "nav.home": "Home",
+      "nav.sales": "Sales",
+      "nav.rentals": "Rentals",
+      "nav.estimate": "Estimate",
+      "nav.agency": "Agency",
+      "nav.contact": "Contact",
+      "actions.signup": "Sign up",
+      "actions.login": "Login"
+    }
+  };
+
+  const langSelect = document.getElementById('lang');
+  const applyLang = (lang) => {
+    const dict = I18N[lang] || I18N.fr;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) el.textContent = dict[key];
+    });
+    // Persiste le choix côté navigateur
+    localStorage.setItem('habineo_lang', lang);
+    // Met à jour l'attribut lang du document (accessibilité/SEO)
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'fr');
+  };
+
+  // Au chargement : FR par défaut, sinon valeur stockée
+  const saved = localStorage.getItem('habineo_lang') || 'fr';
+  langSelect.value = saved;
+  applyLang(saved);
+
+  // Changement manuel
+  langSelect.addEventListener('change', (e) => applyLang(e.target.value));
+</script>
