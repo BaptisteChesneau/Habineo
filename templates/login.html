@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body class="page-auth">
-
   {% include 'header.html' %}
 
   <main class="page-content container">
@@ -15,10 +14,14 @@
       <h1>Connexion</h1>
       <p>Connectez-vous à votre espace personnel Habinéo.</p>
 
-      <form class="login-form">
-        <input type="email" placeholder="Adresse e-mail" required>
-        <input type="password" placeholder="Mot de passe" required>
-        <button type="submit">Se connecter</button>
+      <!-- IMPORTANT: method="post", action vers la route login,
+           et name="email"/"password" pour que Flask les lise -->
+      <form class="login-form"
+            method="post"
+            action="{{ url_for('login', next=request.args.get('next')) }}">
+        <input type="email" name="email" placeholder="Adresse e-mail" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <button type="submit" class="btn btn-accent">Se connecter</button>
       </form>
 
       <p class="register-link">
@@ -28,6 +31,5 @@
   </main>
 
   {% include 'footer.html' %}
-
 </body>
 </html>

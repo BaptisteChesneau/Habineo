@@ -46,13 +46,11 @@ def contact():
 # =========================================================
 # 👤 Auth (signup / login / logout)
 # =========================================================
-@app.route("/signup", methods=["GET", "POST"])
+@app.route("/signup", methods=["GET","POST"])
 def signup():
     if request.method == "POST":
-        email = request.form.get("email") or "demo@habineo.fr"
-        session["user_id"] = email
+        session["user_id"] = request.form.get("email") or "demo@habineo.fr"
         session["user_name"] = request.form.get("name") or "Client Habinéo"
-        flash("Compte créé, bienvenue !")
         return redirect(url_for("dashboard"))
     return render_template("signup.html")
 
@@ -62,7 +60,6 @@ def login():
         email = request.form.get("email") or "demo@habineo.fr"
         session["user_id"] = email
         session["user_name"] = "Client Habinéo"
-        flash("Connexion réussie !")
         return redirect(request.args.get("next") or url_for("dashboard"))
     return render_template("login.html")
 

@@ -15,11 +15,12 @@
       <h1>Créer un compte</h1>
       <p>Inscrivez-vous pour profiter de votre espace Habinéo personnalisé.</p>
 
-      <form class="signup-form">
-        <input type="text" placeholder="Nom complet" required>
-        <input type="email" placeholder="Adresse e-mail" required>
-        <input type="password" placeholder="Mot de passe" required>
-        <button type="submit">Créer mon compte</button>
+      <!-- IMPORTANT : method POST, action vers /signup, et name=... -->
+      <form class="signup-form" method="post" action="{{ url_for('signup') }}">
+        <input type="text" name="name" placeholder="Nom complet" required>
+        <input type="email" name="email" placeholder="Adresse e-mail" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <button type="submit" class="btn btn-accent">Créer mon compte</button>
       </form>
     </section>
   </main>
