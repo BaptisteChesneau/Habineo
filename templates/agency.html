@@ -3,31 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Habinéo — Notre Agence</title>
+  <title>Habinéo — Agence</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body class="page-agency">
 
   {% include 'header.html' %}
 
   <main class="page-content">
-    <section class="container agence-section">
-      <h1>Notre Agence</h1>
-      <p>Découvrez l’histoire, les valeurs et l’équipe derrière Habinéo, votre partenaire immobilier de confiance.</p>
+    <div class="agency-hero">
+      <div class="container">
+        <h1>Habinéo, votre partenaire immobilier</h1>
+        <p>Nous accompagnons vendeurs et acquéreurs avec transparence et exigence.
+          Notre expertise locale et nos outils digitaux accélèrent chaque projet.</p>
 
-      <div class="equipe">
-        <article class="membre">
-          <img src="{{ url_for('static', filename='images/team1.jpg') }}" alt="Jean Dupont, Directeur d’agence">
-          <h3>Jean Dupont</h3>
-          <p>Directeur d’agence</p>
+        <div class="chips">
+          <span class="chip">Paris & Petite Couronne</span>
+          <span class="chip">Expertise estimation</span>
+          <span class="chip">Accompagnement A→Z</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="container kpis">
+      <article class="kpi">
+        <div class="kpi-value">250+</div>
+        <div class="kpi-label">Transactions finalisées</div>
+      </article>
+      <article class="kpi">
+        <div class="kpi-value">4.8★</div>
+        <div class="kpi-label">Note moyenne clients</div>
+      </article>
+      <article class="kpi">
+        <div class="kpi-value">15j</div>
+        <div class="kpi-label">Délai moyen de vente</div>
+      </article>
+      <article class="kpi">
+        <div class="kpi-value">12</div>
+        <div class="kpi-label">Conseillers dédiés</div>
+      </article>
+    </section>
+
+    <section class="container team">
+      <h2>Notre équipe</h2>
+
+      <div class="team-grid">
+        <article class="member">
+          <div class="avatar"></div>
+          <div class="member-meta">
+            <strong>Camille R.</strong>
+            <span>Directrice d’agence</span>
+          </div>
         </article>
 
-        <article class="membre">
-          <img src="{{ url_for('static', filename='images/team2.jpg') }}" alt="Marie Lefèvre, Conseillère">
-          <h3>Marie Lefèvre</h3>
-          <p>Conseillère immobilière</p>
+        <article class="member">
+          <div class="avatar"></div>
+          <div class="member-meta">
+            <strong>Yassine B.</strong>
+            <span>Conseiller vente</span>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="avatar"></div>
+          <div class="member-meta">
+            <strong>Élise T.</strong>
+            <span>Location & gestion</span>
+          </div>
         </article>
       </div>
+    </section>
+
+    <section class="container area">
+      <h2>Nos zones d’intervention</h2>
+      <div class="area-panel" role="img" aria-label="Carte des zones d’intervention">
+        <!-- Tu pourras remplacer ce panneau par une vraie carte ou une image -->
+      </div>
+    </section>
+
+    <section class="container contact-card">
+      <h2>Un projet ? Parlons-en</h2>
+
+      <form class="contact-grid">
+        <div class="field">
+          <label>Nom</label>
+          <input type="text" placeholder="Votre nom">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="vous@exemple.fr">
+        </div>
+        <div class="field field-full">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Décrivez votre projet..."></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn btn-accent">Envoyer</button>
+        </div>
+      </form>
     </section>
   </main>
 
