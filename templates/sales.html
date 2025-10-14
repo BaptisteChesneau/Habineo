@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habinéo — Vente</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/vente.css') }}">
+</head>
+<body>
+
+  {% include 'header.html' %}
+
+  <main class="page-content">
+    <section class="container">
+      <h1>Nos biens à la vente</h1>
+      <p>Découvrez notre sélection exclusive de maisons, appartements et terrains à vendre.</p>
+    </section>
+  </main>
+
+  {% include 'footer.html' %}
+
+</body>
+</html>

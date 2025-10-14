@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habinéo — Connexion</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/connexion.css') }}">
+</head>
+<body>
+
+  {% include 'header.html' %}
+
+  <main class="page-content">
+    <section class="container connexion-section">
+      <h1>Connexion</h1>
+      <p>Connectez-vous à votre espace personnel Habinéo.</p>
+
+      <form class="login-form">
+        <input type="email" placeholder="Adresse e-mail" required>
+        <input type="password" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+      </form>
+
+      <p class="register-link">
+        Pas encore de compte ? <a href="{{ url_for('creer_compte') }}">Créez-en un ici</a>.
+      </p>
+    </section>
+  </main>
+
+  {% include 'footer.html' %}
+
+</body>
+</html>

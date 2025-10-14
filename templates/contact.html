@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habinéo — Contact</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+</head>
+<body>
+
+  {% include 'header.html' %}
+
+  <main class="page-content">
+    <section class="container contact-section">
+      <h1>Contactez-nous</h1>
+      <p>Une question, un projet ? Notre équipe vous répond dans les plus brefs délais.</p>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Nom complet" required>
+        <input type="email" placeholder="Adresse e-mail" required>
+        <textarea placeholder="Votre message" rows="5" required></textarea>
+        <button type="submit">Envoyer le message</button>
+      </form>
+    </section>
+  </main>
+
+  {% include 'footer.html' %}
+
+</body>
+</html>

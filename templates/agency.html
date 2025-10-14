@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habinéo — Notre Agence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/agence.css') }}">
+</head>
+<body>
+
+  {% include 'header.html' %}
+
+  <main class="page-content">
+    <section class="container agence-section">
+      <h1>Notre Agence</h1>
+      <p>Découvrez l’histoire, les valeurs et l’équipe derrière Habinéo, votre partenaire immobilier de confiance.</p>
+
+      <div class="equipe">
+        <article class="membre">
+          <img src="{{ url_for('static', filename='images/team1.jpg') }}" alt="Jean Dupont, Directeur d’agence">
+          <h3>Jean Dupont</h3>
+          <p>Directeur d’agence</p>
+        </article>
+
+        <article class="membre">
+          <img src="{{ url_for('static', filename='images/team2.jpg') }}" alt="Marie Lefèvre, Conseillère">
+          <h3>Marie Lefèvre</h3>
+          <p>Conseillère immobilière</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  {% include 'footer.html' %}
+
+</body>
+</html>
