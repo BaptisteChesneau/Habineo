@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habinéo — Messages</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="page-account">
+  {% include 'header.html' %}
+  <main class="page-content">
+    <div class="container account-layout">
+      {% include 'account_sidebar.html' %}
+      <section class="account-main">
+        <h1>Messages</h1>
+
+        <ul class="threads">
+          {% for t in threads %}
+          <li class="thread {% if t.unread %}unread{% endif %}">
+            <div class="subject">{{ t.subject }}</div>
+            <div class="meta">{{ t.last }}</div>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <form method="post" class="form-grid">
+          <label>À l’agence
+            <input type="text" placeholder="Agence Habinéo">
+          </label>
+          <label>Objet
+            <input type="text" placeholder="Objet…">
+          </label>
+          <label class="field-full">Message
+            <textarea rows="5" placeholder="Votre message…"></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="btn btn-accent" type="submit">Envoyer</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+  {% include 'footer.html' %}
+</body>
+</html>

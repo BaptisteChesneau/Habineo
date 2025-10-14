@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habinéo — Profil</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="page-account">
+  {% include 'header.html' %}
+  <main class="page-content">
+    <div class="container account-layout">
+      {% include 'account_sidebar.html' %}
+      <section class="account-main">
+        <h1>Profil</h1>
+        <form method="post" class="form-grid">
+          <label>Nom
+            <input type="text" name="name" value="{{ user.name }}">
+          </label>
+          <label>Email
+            <input type="email" name="email" value="{{ user.email }}">
+          </label>
+          <label>Téléphone
+            <input type="tel" name="phone" value="{{ user.phone }}">
+          </label>
+          <div class="form-actions">
+            <button class="btn btn-accent" type="submit">Enregistrer</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+  {% include 'footer.html' %}
+</body>
+</html>

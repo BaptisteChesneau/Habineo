@@ -775,3 +775,94 @@ body {
 .page-auth form button:hover{background:#fa8868}
 .page-auth .register-link a{color:#1E5F74; text-decoration:none; font-weight:700}
 .page-auth .register-link a:hover{text-decoration:underline}
+
+/* =========================================================
+   1️⃣1️⃣ ACCOUNT — Espace client (dashboard, profil, etc.)
+   ========================================================= */
+.page-account .page-content{ padding:24px 0 60px; background:#f6f9fb; }
+
+/* Layout : sidebar + contenu */
+.account-layout{
+  display:grid; grid-template-columns: 280px 1fr; gap:20px;
+}
+
+/* Sidebar */
+.account-sidebar{ position:sticky; top:84px; height:max-content; }
+.account-card{
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  padding:12px; display:flex; gap:10px; align-items:center;
+  box-shadow:0 6px 16px rgba(0,0,0,.06);
+}
+.avatar-sm{ width:42px; height:42px; border-radius:999px;
+  background:linear-gradient(135deg, var(--bleu-petrole), var(--vert-menthe));
+}
+.account-meta{ display:flex; flex-direction:column; }
+.account-meta small{ color:#6b7280; }
+
+.account-nav{
+  margin-top:10px; background:#fff; border:1px solid var(--border);
+  border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,.06);
+  overflow:hidden; display:flex; flex-direction:column;
+}
+.account-nav .item{
+  padding:10px 12px; text-decoration:none; color:var(--texte-principal);
+  border-bottom:1px solid var(--border);
+}
+.account-nav .item:last-child{ border-bottom:none; }
+.account-nav .item:hover{ background:#eef3f7; }
+.account-nav .item.active{ background:var(--bleu-petrole); color:#0B1520; }
+.account-nav .item.logout{ color:#c0392b; }
+
+/* Main */
+.account-main h1{ margin:0 0 12px; font-size:clamp(22px,3vw,28px); }
+.account-kpis{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
+.account-kpis .kpi{
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  padding:14px; text-align:center; box-shadow:0 6px 16px rgba(0,0,0,.06);
+}
+.kpi-value{ font-size:1.5rem; font-weight:800; }
+.kpi-label{ color:#6b7280; }
+
+.account-cards{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:14px; }
+.account-cards .card{
+  background:#fff; border:1px solid var(--border); border-radius:12px; padding:14px;
+  box-shadow:0 6px 16px rgba(0,0,0,.06);
+}
+.account-cards .list{ margin:8px 0 0 18px; }
+
+/* Formulaires génériques */
+.form-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+.form-grid .field-full{ grid-column: 1 / -1; }
+.form-grid input, .form-grid select, .form-grid textarea{
+  width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:10px; background:#fff;
+}
+.form-actions{ grid-column: 1 / -1; }
+.form-actions .btn{ margin-right:6px; }
+
+/* Threads */
+.threads{ list-style:none; padding:0; margin:0 0 14px; }
+.thread{ display:flex; justify-content:space-between; align-items:center;
+  background:#fff; border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin-bottom:8px;
+}
+.thread.unread{ border-color:#ffb4a1; box-shadow:0 2px 8px rgba(231,111,81,.25); }
+
+/* Cartes favoris réutilisent styles des cards */
+.page-account .cards-grid{
+  display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px;
+}
+.page-account .card .media{ height:130px; background:linear-gradient(135deg, var(--bleu-petrole), var(--vert-menthe)); }
+.page-account .card .card-body{ padding:12px; display:flex; flex-direction:column; gap:6px; }
+.page-account .card .price{ font-weight:800; }
+
+/* Responsive */
+@media (max-width: 980px){
+  .account-layout{ grid-template-columns: 1fr; }
+  .account-sidebar{ position:static; }
+  .account-cards{ grid-template-columns: 1fr; }
+  .page-account .cards-grid{ grid-template-columns: 1fr; }
+  .form-grid{ grid-template-columns: 1fr; }
+  .account-kpis{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px){
+  .account-kpis{ grid-template-columns: 1fr; }
+}

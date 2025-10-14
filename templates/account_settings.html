@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habinéo — Paramètres</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="page-account">
+  {% include 'header.html' %}
+  <main class="page-content">
+    <div class="container account-layout">
+      {% include 'account_sidebar.html' %}
+      <section class="account-main">
+        <h1>Paramètres</h1>
+        <form method="post" class="form-grid">
+          <label>Langue
+            <select>
+              <option>Français</option>
+              <option>English</option>
+            </select>
+          </label>
+          <label>Notifications email
+            <select>
+              <option>Toutes</option>
+              <option>Essentielles</option>
+              <option>Aucune</option>
+            </select>
+          </label>
+          <div class="form-actions">
+            <button class="btn btn-accent" type="submit">Enregistrer</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+  {% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>…</head>
+<body class="page-account">
+  {% include 'header.html' %}
+  <main class="page-content">
+    <div class="container account-layout">
+      {% include 'account_sidebar.html' %}
+      <section class="account-main">
+       <aside class="account-sidebar">
+  <div class="account-card">
+    <div class="avatar-sm"></div>
+    <div class="account-meta">
+      <strong>{{ user.name or 'Mon compte' }}</strong>
+      <small>{{ user.email }}</small>
+    </div>
+  </div>
+  <nav class="account-nav">
+    <a href="{{ url_for('dashboard') }}"            class="item {% if request.path == url_for('dashboard') %}active{% endif %}">Tableau de bord</a>
+    <a href="{{ url_for('account_profile') }}"      class="item {% if request.path == url_for('account_profile') %}active{% endif %}">Profil</a>
+    <a href="{{ url_for('account_favorites') }}"    class="item {% if request.path == url_for('account_favorites') %}active{% endif %}">Favoris</a>
+    <a href="{{ url_for('account_messages') }}"     class="item {% if request.path == url_for('account_messages') %}active{% endif %}">Messages</a>
+    <a href="{{ url_for('account_settings') }}"     class="item {% if request.path == url_for('account_settings') %}active{% endif %}">Paramètres</a>
+    <a href="{{ url_for('logout') }}" class="item logout">Se déconnecter</a>
+  </nav>
+</aside>
+      </section>
+    </div>
+  </main>
+  {% include 'footer.html' %}
+</body>
+</html>

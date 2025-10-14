@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habinéo — Mon espace</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="page-account">
+  {% include 'header.html' %}
+  <main class="page-content">
+    <div class="container account-layout">
+      {% include 'account_sidebar.html' %}
+      <section class="account-main">
+        <h1>Bonjour, {{ user.name }}</h1>
+
+        <div class="account-kpis">
+          <article class="kpi">
+            <div class="kpi-value">{{ stats.favoris }}</div>
+            <div class="kpi-label">Favoris</div>
+          </article>
+          <article class="kpi">
+            <div class="kpi-value">{{ stats.visites }}</div>
+            <div class="kpi-label">Visites à venir</div>
+          </article>
+          <article class="kpi">
+            <div class="kpi-value">{{ stats.messages }}</div>
+            <div class="kpi-label">Messages non lus</div>
+          </article>
+        </div>
+
+        <div class="account-cards">
+          <article class="card">
+            <h3>Derniers messages</h3>
+            <ul class="list">
+              <li>Agent — “Visite confirmée demain 10h”</li>
+              <li>Agent — “Signature de l’offre reçue”</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Vos favoris</h3>
+            <ul class="list">
+              <li>Appartement — Issy (510 000 €)</li>
+              <li>Loft — Saint-Ouen (1 020 000 €)</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+  {% include 'footer.html' %}
+</body>
+</html>
