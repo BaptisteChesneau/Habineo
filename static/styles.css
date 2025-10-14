@@ -297,3 +297,194 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   3️⃣ HEADER — STRUCTURE, NAVIGATION ET ACTIONS
+   ========================================================= */
+
+:root {
+  --fond-principal: #F4F6F8;
+  --texte-principal: #1B263B;
+  --bleu-petrole: #1E5F74;
+  --corail: #E76F51;
+  --vert-menthe: #4E937A;
+  --fond-sombre: #0D1B2A;
+  --texte-clair: #FAFAF8;
+  --transition: 0.3s ease;
+  --rayon: 8px;
+}
+
+/* ---------- Structure générale ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 2px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 5%;
+  flex-wrap: wrap;
+}
+
+/* ---------- Logo ---------- */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: var(--texte-principal);
+  text-decoration: none;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.logo-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--bleu-petrole), var(--vert-menthe));
+  margin-right: 8px;
+}
+
+/* ---------- Navigation ---------- */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.nav a {
+  color: var(--texte-principal);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: var(--rayon);
+  transition: all var(--transition);
+}
+
+.nav a:hover {
+  background-color: var(--bleu-petrole);
+  color: var(--texte-clair);
+}
+
+/* Lien actif (page actuelle) */
+.nav a.active {
+  background-color: var(--bleu-petrole);
+  color: var(--texte-clair);
+}
+
+/* ---------- Boutons du header ---------- */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: var(--rayon);
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-accent {
+  background: var(--corail);
+  color: #fff;
+}
+
+.btn-accent:hover {
+  background: #fa8868;
+}
+
+.btn-ghost {
+  border: 1px solid var(--bleu-petrole);
+  background: transparent;
+  color: var(--bleu-petrole);
+}
+
+.btn-ghost:hover {
+  background: var(--bleu-petrole);
+  color: #fff;
+}
+
+/* =========================================================
+   4️⃣ FOOTER — STRUCTURE ET CONTENU
+   ========================================================= */
+
+.footer {
+  background: var(--fond-sombre);
+  color: var(--texte-clair);
+  padding: 40px 5%;
+  text-align: center;
+  border-top: 3px solid var(--bleu-petrole);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-info p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* ---------- Liens ---------- */
+.footer-links a {
+  color: var(--texte-clair);
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--vert-menthe);
+  text-decoration: underline;
+}
+
+/* ---------- Réseaux sociaux ---------- */
+.footer-socials {
+  margin-top: 8px;
+}
+
+.footer-socials a {
+  color: var(--texte-clair);
+  font-size: 1.3rem;
+  margin: 0 6px;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  transform: scale(1.2);
+  color: var(--corail);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .footer-inner {
+    text-align: center;
+  }
+}

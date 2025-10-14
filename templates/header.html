@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habinéo — Accueil</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/accueil.css') }}">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+
+    <!-- Logo -->
+    <a class="logo" href="{{ url_for('accueil') }}">
+      <span class="logo-mark"></span>
+      <span>HABINÉO</span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="{{ url_for('accueil') }}" class="nav-link">Accueil</a>
+      <a href="#" class="nav-link">Vente</a>
+      <a href="#" class="nav-link">Location</a>
+      <a href="#" class="nav-link">Estimation</a>
+      <a href="#" class="nav-link">Agence</a>
+      <a href="#" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button class="btn btn-accent">Créer un compte</button>
+      <button class="btn btn-ghost">Se connecter</button>
+    </div>
+
+  </div>
+</header>
