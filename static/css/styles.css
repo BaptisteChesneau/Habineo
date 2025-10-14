@@ -601,13 +601,64 @@ body {
 }
 
 /* =========================================================
-   7️⃣ ESTIMATE — (estimate.html) -> body class="page-estimate"
+   7️⃣ ESTIMATE — (estimate.html) -> body.page-estimate
    ========================================================= */
-.page-estimate .page-content{text-align:center; padding:80px 5%}
-.page-estimate .estimation-form{margin:30px auto; max-width:450px; display:flex; flex-direction:column; gap:15px}
-.page-estimate .estimation-form input{padding:12px; border-radius:6px; border:1px solid #ccc; font-size:1rem}
-.page-estimate .estimation-form button{background:var(--corail); color:#fff; padding:12px; border:none; border-radius:8px; font-weight:700; cursor:pointer; transition:background .2s}
-.page-estimate .estimation-form button:hover{background:#fa8868}
+.page-estimate .page-title{margin:0 0 12px}
+.page-estimate .page-content{padding:32px 5%}
+
+/* Bandeau d’info */
+.notice{
+  padding:10px 14px;border-radius:10px;margin:0 0 16px;font-size:14px
+}
+.notice-soft{
+  background:#fef3ef;color:#53372b;border:1px solid #f9e0d6
+}
+
+/* Carte */
+.card{background:#fff;border:1px solid #e9edf2;border-radius:14px;box-shadow:0 2px 8px rgba(16,24,40,.04)}
+.card-form{padding:18px}
+
+/* Grille 2 colonnes */
+.form-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px 20px
+}
+.field{display:flex;flex-direction:column;gap:6px}
+.field-full{grid-column:1 / -1}
+.field label{font-size:13px;color:#344054}
+
+/* Champs */
+.field input,.field select,.field textarea{
+  width:100%;padding:10px 12px;border:1px solid #d5dbe3;border-radius:10px;
+  background:#fff;font-size:14px;outline:none;transition:border-color .15s,box-shadow .15s
+}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:#6fb1a3;box-shadow:0 0 0 3px rgba(111,177,163,.15)
+}
+
+/* Checkbox */
+.checkbox label{display:flex;align-items:center;gap:10px;font-size:14px}
+.checkbox input{width:18px;height:18px}
+
+/* Actions */
+.actions{display:flex;gap:10px;align-items:center}
+
+/* Boutons (compatibles avec ta variable --corail) */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;height:38px;
+  padding:0 14px;border-radius:10px;font-weight:700;border:1px solid transparent;cursor:pointer
+}
+.btn-primary{background:var(--corail);color:#fff;border-color:var(--corail)}
+.btn-primary:hover{filter:brightness(.95)}
+.btn-ghost{background:#f5f7fa;color:#344054;border-color:#e1e7ef}
+.btn-ghost:hover{background:#eef2f7}
+
+/* Responsive */
+@media (max-width:768px){
+  .form-grid{grid-template-columns:1fr}
+}
+
 
 /* =========================================================
    8️⃣ AGENCY — (agency.html) -> body class="page-agency"

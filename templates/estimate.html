@@ -6,25 +6,101 @@
   <title>Habinéo — Estimation</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body class="page-estimate">
 
   {% include 'header.html' %}
 
-  <main class="page-content">
-    <section class="container">
-      <h1>Estimez votre bien</h1>
-      <p>Obtenez une estimation gratuite et rapide de la valeur de votre bien immobilier.</p>
+  <main class="page-content container">
+    <h1 class="page-title">Estimez votre bien gratuitement</h1>
 
-      <form class="estimation-form">
-        <input type="text" placeholder="Adresse du bien" required>
-        <input type="number" placeholder="Surface (m²)" required>
-        <input type="text" placeholder="Ville" required>
-        <button type="submit">Obtenir mon estimation</button>
+    <!-- Bandeau d’info -->
+    <div class="notice notice-soft">
+      Rapide, gratuit et sans engagement. Un conseiller Habinéo vous recontacte.
+    </div>
+
+    <!-- Carte + formulaire -->
+    <section class="card card-form">
+      <form class="form-grid" action="#" method="post" novalidate>
+        <!-- Adresse / Ville -->
+        <div class="field">
+          <label for="address">Adresse</label>
+          <input id="address" name="address" type="text" placeholder="N° et rue">
+        </div>
+        <div class="field">
+          <label for="city">Ville / CP</label>
+          <input id="city" name="city" type="text" placeholder="Paris 75015">
+        </div>
+
+        <!-- Type / Surface -->
+        <div class="field">
+          <label for="type">Type de bien</label>
+          <select id="type" name="type">
+            <option value="">Choisir...</option>
+            <option>Appartement</option>
+            <option>Maison</option>
+            <option>Studio</option>
+            <option>Loft</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="surface">Surface (m²)</label>
+          <input id="surface" name="surface" type="number" inputmode="numeric" placeholder="62">
+        </div>
+
+        <!-- Pièces / État -->
+        <div class="field">
+          <label for="rooms">Pièces</label>
+          <select id="rooms" name="rooms">
+            <option>1</option><option>2</option><option>3</option>
+            <option>4</option><option>5+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="state">État</label>
+          <select id="state" name="state">
+            <option value="">À renover</option>
+            <option>Bon état</option>
+            <option>Neuf / Rénové</option>
+          </select>
+        </div>
+
+        <!-- Nom / Email -->
+        <div class="field">
+          <label for="name">Nom</label>
+          <input id="name" name="name" type="text" placeholder="Dupont">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="vous@exemple.fr">
+        </div>
+
+        <!-- Téléphone / Commentaires -->
+        <div class="field">
+          <label for="phone">Téléphone</label>
+          <input id="phone" name="phone" type="tel" placeholder="06 12 34 56 78">
+        </div>
+        <div class="field">
+          <label for="comment">Commentaires</label>
+          <textarea id="comment" name="comment" rows="4" placeholder="Atouts, travaux, délais…"></textarea>
+        </div>
+
+        <!-- Consentement (pleine largeur) -->
+        <div class="field field-full checkbox">
+          <label>
+            <input type="checkbox" name="consent">
+            J’accepte d’être contacté(e) par Habinéo
+          </label>
+        </div>
+
+        <!-- Actions (pleine largeur) -->
+        <div class="field field-full actions">
+          <button type="submit" class="btn btn-primary">Demander mon estimation</button>
+          <button type="reset" class="btn btn-ghost">Réinitialiser</button>
+        </div>
       </form>
     </section>
   </main>
 
   {% include 'footer.html' %}
-
 </body>
 </html>
