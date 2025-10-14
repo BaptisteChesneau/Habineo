@@ -310,21 +310,47 @@ body {
 }
 
 /* =========================================================
-   4️⃣ FOOTER — STRUCTURE (global)
+   4 FOOTER — GLOBAL
    ========================================================= */
 .footer{
-  background:var(--fond-sombre); color:var(--texte-clair);
-  padding:25px 5%; text-align:center; font-size:.95rem;
-  border-top:3px solid var(--bleu-petrole); margin-top:50px;
+  background: var(--fond-sombre);
+  color: var(--texte-clair);
+  border-top: 3px solid var(--bleu-petrole);
+  margin-top: 50px;             /* ou auto si tu veux le coller en bas */
+  padding: 36px 0 28px;
 }
-.footer-inner{display:flex; flex-direction:column; align-items:center; gap:12px}
-.footer-info p{margin:0; opacity:.9}
-.footer-links a{color:var(--texte-clair); text-decoration:none; margin:0 8px}
-.footer-links a:hover{color:var(--vert-menthe); text-decoration:underline}
-.footer-socials a{color:var(--texte-clair); margin:0 6px; font-size:1.2rem; text-decoration:none}
-.footer-socials a:hover{color:var(--corail)}
+.footer-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 40px;
+}
+.footer-grid h3{
+  margin: 0 0 14px;
+  color: var(--corail);
+  font-size: 1.05rem;
+}
+.footer-grid p{ margin: 8px 0; }
+.footer a{
+  color: var(--texte-clair);
+  text-decoration: none;
+}
+.footer a:hover{
+  color: var(--vert-menthe);
+  text-decoration: underline;
+}
+.footer .socials,
+.footer .legal{ list-style: none; padding: 0; margin: 0; }
+.footer .socials li,
+.footer .legal li{ display: flex; align-items: center; gap: 10px; margin: 10px 0; }
+.footer .socials svg{ color: var(--texte-clair); flex: 0 0 18px; }
 
-
+/* responsive */
+@media (max-width: 900px){
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px){
+  .footer-grid{ grid-template-columns: 1fr; gap: 24px; }
+}
 
 /* =========================================================
    5️⃣ SALES — (sales.html) -> body class="page-sales"
