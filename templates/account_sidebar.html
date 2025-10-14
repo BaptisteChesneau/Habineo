@@ -3,10 +3,11 @@
   <div class="account-card">
     <div class="avatar-sm"></div>
     <div class="account-meta">
-      <strong>{{ user.name or 'Mon compte' }}</strong>
-      <small>{{ user.email }}</small>
+      <strong>Mon compte</strong>
+      <small></small>
     </div>
   </div>
+
   <nav class="account-nav">
     <a href="{{ url_for('dashboard') }}"         class="item {% if request.path == url_for('dashboard') %}active{% endif %}">Tableau de bord</a>
     <a href="{{ url_for('account_profile') }}"   class="item {% if request.path == url_for('account_profile') %}active{% endif %}">Profil</a>
@@ -16,3 +17,4 @@
     <a href="{{ url_for('logout') }}" class="item logout">Se déconnecter</a>
   </nav>
 </aside>
+
