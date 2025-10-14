@@ -6,22 +6,58 @@
   <title>Habinéo — Contact</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body class="page-contact">
 
   {% include 'header.html' %}
 
   <main class="page-content">
-    <section class="container contact-section">
-      <h1>Contactez-nous</h1>
-      <p>Une question, un projet ? Notre équipe vous répond dans les plus brefs délais.</p>
+    <div class="container">
+      <h1>Contactez l’agence HabinéO</h1>
 
-      <form class="contact-form">
-        <input type="text" placeholder="Nom complet" required>
-        <input type="email" placeholder="Adresse e-mail" required>
-        <textarea placeholder="Votre message" rows="5" required></textarea>
-        <button type="submit">Envoyer le message</button>
-      </form>
-    </section>
+      <section class="contact-card">
+        <form class="contact-grid" method="post" action="#">
+          <div class="field">
+            <label for="name">Nom</label>
+            <input id="name" name="name" type="text" placeholder="Votre nom" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="vous@exemple.fr" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" placeholder="06 12 34 56 78" inputmode="tel">
+          </div>
+
+          <div class="field">
+            <label for="subject">Objet</label>
+            <select id="subject" name="subject">
+              <option>Demande de visite</option>
+              <option>Estimation</option>
+              <option>Confier un bien</option>
+              <option>Autre</option>
+            </select>
+          </div>
+
+          <div class="field field-full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-accent">Envoyer</button>
+            <button type="reset" class="btn btn-ghost">Effacer</button>
+          </div>
+        </form>
+      </section>
+
+      <p class="agency-line">
+        <strong>HabinéO</strong> — 10 rue de l’Habitat, 75015 Paris • 01 23 45 67 89 •
+        <a href="mailto:contact@habineo.fr">contact@habineo.fr</a>
+      </p>
+    </div>
   </main>
 
   {% include 'footer.html' %}
