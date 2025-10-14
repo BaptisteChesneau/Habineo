@@ -70,3 +70,230 @@ p {
     transform: translateY(0);
   }
 }
+
+/* =========================================================
+   2️⃣ ACCUEIL — PAGE D’ACCUEIL (accueil.html)
+   ========================================================= */
+
+/* ---------- Variables globales ---------- */
+:root {
+  --fond-principal: #F4F6F8;
+  --texte-principal: #1B263B;
+  --bleu-petrole: #1E5F74;
+  --corail: #E76F51;
+  --vert-menthe: #4E937A;
+  --fond-sombre: #0D1B2A;
+  --texte-clair: #FAFAF8;
+  --rayon: 8px;
+  --transition: 0.3s ease;
+}
+
+/* ---------- Reset et base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--fond-principal);
+  color: var(--texte-principal);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 2px solid #E0E0E0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 5%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: var(--texte-principal);
+  text-decoration: none;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--bleu-petrole), var(--vert-menthe));
+  margin-right: 8px;
+}
+
+.nav a {
+  margin: 0 10px;
+  color: var(--texte-principal);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.nav a:hover {
+  color: var(--bleu-petrole);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  border: none;
+  border-radius: var(--rayon);
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-accent {
+  background: var(--corail);
+  color: var(--texte-clair);
+}
+
+.btn-accent:hover {
+  background: #fa8868;
+}
+
+.btn-ghost {
+  border: 1px solid var(--bleu-petrole);
+  background: transparent;
+  color: var(--bleu-petrole);
+}
+
+.btn-ghost:hover {
+  background: var(--bleu-petrole);
+  color: var(--texte-clair);
+}
+
+/* =========================================================
+   SECTION HERO
+   ========================================================= */
+.hero {
+  background: linear-gradient(135deg, var(--bleu-petrole), var(--vert-menthe));
+  color: var(--texte-clair);
+  padding: 100px 5%;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+}
+
+/* =========================================================
+   SECTION SÉLECTIONS
+   ========================================================= */
+.section {
+  padding: 60px 5%;
+  background: var(--fond-principal);
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: var(--bleu-petrole);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card .media {
+  height: 180px;
+  background: linear-gradient(135deg, var(--bleu-petrole), var(--vert-menthe));
+}
+
+.card .content {
+  padding: 18px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card strong {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--corail);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  background: var(--fond-sombre);
+  color: var(--texte-clair);
+  text-align: center;
+  padding: 25px 5%;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero {
+    padding: 70px 5%;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+}
