@@ -1,0 +1,72 @@
+/* =========================================================
+   1️⃣ HELLO — PAGE D’ACCUEIL (hello.html)
+   ========================================================= */
+
+:root {
+  --fond-principal: #F4F6F8;
+  --texte-principal: #1B263B;
+  --bleu-petrole: #1E5F74;
+  --corail: #E76F51;
+  --vert-menthe: #4E937A;
+  --fond-sombre: #0D1B2A;
+  --texte-clair: #FAFAF8;
+  --rayon: 8px;
+  --transition: 0.3s ease;
+}
+
+/* ---------- Structure globale ---------- */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bleu-petrole), var(--vert-menthe));
+  color: var(--texte-clair);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* ---------- Titres et texte ---------- */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* ---------- Bouton principal ---------- */
+.btn {
+  margin-top: 2rem;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--rayon);
+  background-color: var(--corail);
+  color: #fff;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition);
+}
+
+.btn:hover {
+  background-color: #fa8868;
+  transform: scale(1.05);
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
