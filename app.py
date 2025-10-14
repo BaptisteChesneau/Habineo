@@ -2,54 +2,59 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# 🏠 Page d'accueil
+# =========================================================
+# 🌐 MAIN ROUTES — HABINÉO WEBSITE
+# =========================================================
+
+# 🏠 Home
 @app.route('/')
-def accueil():
-    return render_template('accueil.html')
+def home():
+    return render_template('home.html')
 
-# 👋 Page Hello (test initial)
-@app.route('/hello')
-def hello():
-    return render_template('hello.html')
+# 🏡 Sales page
+@app.route('/sales')
+def sales():
+    return render_template('sales.html')
 
-# 🏡 Page Vente
-@app.route('/vente')
-def vente():
-    return render_template('vente.html')
+# 🏘️ Rentals page
+@app.route('/rentals')
+def rentals():
+    return render_template('rentals.html')
 
-# 🔑 Page Location
-@app.route('/location')
-def location():
-    return render_template('location.html')
+# 📏 Estimate page
+@app.route('/estimate')
+def estimate():
+    return render_template('estimate.html')
 
-# 📏 Page Estimation
-@app.route('/estimation')
-def estimation():
-    return render_template('estimation.html')
+# 🏢 Agency page
+@app.route('/agency')
+def agency():
+    return render_template('agency.html')
 
-# 🏢 Page Agence
-@app.route('/agence')
-def agence():
-    return render_template('agence.html')
-
-# 💬 Page Contact
+# 💬 Contact page
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
 
-# 👤 Page Créer un compte
-@app.route('/creer-compte')
-def creer_compte():
-    return render_template('creer_compte.html')
+# 👤 Signup page
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
 
-# 🔐 Page Connexion
-@app.route('/connexion')
-def connexion():
-    return render_template('connexion.html')
-
+# 🔐 Login page
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 # =========================================================
-# 🔧 Exécution du serveur Flask
+# 🧪 Optional: Hello test page (for dev/test only)
+# =========================================================
+@app.route('/hello')
+def hello():
+    return render_template('hello.html')
+
+# =========================================================
+# ⚙️ RUN FLASK SERVER
 # =========================================================
 if __name__ == '__main__':
     app.run(debug=True)
