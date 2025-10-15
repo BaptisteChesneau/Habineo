@@ -1,0 +1,48 @@
+/* =========================================================
+   9️⃣ CONTACT — (contact.html) -> body class="page-contact"
+   ========================================================= */
+.page-contact .page-content{ padding: 24px 0 60px; background: #f6f9fb; }
+
+.page-contact h1{
+  margin: 0 0 16px;
+  font-size: clamp(22px, 3.2vw, 30px);
+  color: var(--texte-principal);
+}
+
+.page-contact .contact-card{
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+  padding:16px; margin-bottom:12px;
+}
+
+.page-contact .contact-grid{
+  display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+}
+
+.page-contact .field{ display:flex; flex-direction:column; gap:6px; }
+.page-contact .field-full{ grid-column: 1 / -1; }
+
+.page-contact label{ color:#394b62; font-weight:700; font-size:.95rem; }
+.page-contact input,
+.page-contact select,
+.page-contact textarea{
+  padding: 10px 12px; border:1px solid var(--border); border-radius:10px;
+  background:#fff; color:var(--texte-principal);
+}
+
+.page-contact .actions{
+  grid-column: 1 / -1;
+  display:flex; gap:10px; padding-top:4px;
+}
+
+.page-contact .agency-line{
+  margin: 12px 0 0;
+  color:#5a6a80; font-size:.95rem;
+}
+.page-contact .agency-line a{ color: var(--bleu-petrole); text-decoration: none; }
+.page-contact .agency-line a:hover{ text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 720px){
+  .page-contact .contact-grid{ grid-template-columns: 1fr; }
+}
